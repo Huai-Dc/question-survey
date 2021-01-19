@@ -39,6 +39,10 @@
 </template>
 
 <script>
+    import {setCookie, getCookie, setStorage} from '@/utils/storageData'
+    import * as qs from 'qs'
+    import { Toast } from 'vant'
+
     export default {
         name: "index",
         data(){

@@ -1,0 +1,202 @@
+/**
+ * view-port list:
+320x480
+320x568
+320x570
+360x592
+360x598
+360x604
+360x640
+360x720
+375x667
+375x812
+393x699
+412x732
+414x736
+480x854
+540x960
+640x360
+720x1184
+720x1280
+800x600
+1024x768
+1080x1812
+1080x1920
+ */
+html {
+  font-size: -webkit-calc(13.33333333vw);
+  font-size: calc(13.33333333vw);
+}
+@media screen and (max-width: 320px) {
+  html {
+    font-size: 42.667px;
+    font-size: -webkit-calc(13.33333333vw);
+    font-size: calc(13.33333333vw);
+  }
+}
+@media screen and (min-width: 321px) and (max-width: 360px) {
+  html {
+    font-size: 48px;
+    font-size: -webkit-calc(13.33333333vw);
+    font-size: calc(13.33333333vw);
+  }
+}
+@media screen and (min-width: 361px) and (max-width: 375px) {
+  html {
+    font-size: 50px;
+    font-size: -webkit-calc(13.33333333vw);
+    font-size: calc(13.33333333vw);
+  }
+}
+@media screen and (min-width: 376px) and (max-width: 393px) {
+  html {
+    font-size: 52.4px;
+    font-size: -webkit-calc(13.33333333vw);
+    font-size: calc(13.33333333vw);
+  }
+}
+@media screen and (min-width: 394px) and (max-width: 412px) {
+  html {
+    font-size: 54.93px;
+    font-size: -webkit-calc(13.33333333vw);
+    font-size: calc(13.33333333vw);
+  }
+}
+@media screen and (min-width: 413px) and (max-width: 414px) {
+  html {
+    font-size: 55.2px;
+    font-size: -webkit-calc(13.33333333vw);
+    font-size: calc(13.33333333vw);
+  }
+}
+@media screen and (min-width: 415px) and (max-width: 480px) {
+  html {
+    font-size: 64px;
+    font-size: -webkit-calc(13.33333333vw);
+    font-size: calc(13.33333333vw);
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 540px) {
+  html {
+    font-size: 72px;
+    font-size: -webkit-calc(13.33333333vw);
+    font-size: calc(13.33333333vw);
+  }
+}
+@media screen and (min-width: 541px) and (max-width: 640px) {
+  html {
+    font-size: 85.33px;
+    font-size: -webkit-calc(13.33333333vw);
+    font-size: calc(13.33333333vw);
+  }
+}
+@media screen and (min-width: 641px) and (max-width: 720px) {
+  html {
+    font-size: 96px;
+    font-size: -webkit-calc(13.33333333vw);
+    font-size: calc(13.33333333vw);
+  }
+}
+@media screen and (min-width: 721px) and (max-width: 768px) {
+  html {
+    font-size: 102.4px;
+    font-size: -webkit-calc(13.33333333vw);
+    font-size: calc(13.33333333vw);
+  }
+}
+@media screen and (min-width: 769px) {
+  html {
+    font-size: 102.4px;
+    font-size: -webkit-calc(13.33333333vw);
+    font-size: calc(13.33333333vw);
+  }
+}
+#app {
+  margin: 0 auto;
+  min-height: 100vh;
+  max-width: 768px;
+  box-sizing: border-box;
+  position: relative;
+}
+body {
+  font-family: "PingFangSC-Regular", "Microsoft YaHei", Helvetica;
+  color: #333333;
+  background: #f5f7f9;
+}
+html a {
+  color: #333333;
+}
+em{
+  font-style:normal;
+  color: #2391fa;
+}
+.none,
+.hidden {
+  display: none !important;
+}
+@media screen and (min-width: 769px) {
+  html {
+    font-size: 102.4px;
+  }
+  html .wap-wrap {
+    width: 768px;
+    margin: 0 auto;
+  }
+}
+.page-container{
+  font-size: 0.32rem;
+  width: 100%;
+  max-width: 768px;
+  margin: 0 auto;
+}
+.van-nav-bar__content{
+  max-width: 768px;
+  margin: 0 auto;
+}
+.fixed-nav-bar{
+  padding-top: 46px;
+  height: calc(100vh - 46px);
+}
+.van-nav-bar-opacity{
+  background-color: transparent;
+  .van-nav-bar__left, .van-nav-bar__right{
+    .van-nav-bar__arrow{
+      font-size: 20px;
+      color: #ffffff;
+      font-weight: bold;
+    }
+  }
+  .van-nav-bar__title{
+    color: #ffffff;
+  }
+}
+.p-card{
+  display: block;
+  background: #fff;
+  border-radius: 4px;
+  font-size: 14px;
+  position: relative;
+  transition: all .2s ease-in-out;
+  box-shadow: 0 1px 6px rgba(0,0,0,.2);
+  border-color: #eee;
+  margin: .3rem;
+  padding: .25rem;
+  overflow: hidden;
+  width: auto;
+}
+.van-tabs__line{
+  background-color: #1989fa!important;
+}
+.van-tab--active{
+  color: #1989fa!important;
+}
+.block-flex{
+  display: flex!important;
+}
+
+.center{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

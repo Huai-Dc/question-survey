@@ -3,9 +3,22 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
+      <script>
+          /**
+           * 处理安卓虚拟键盘出现后页面没有上移
+           */
+          window.addEventListener('resize', function(){
+              if(document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === "TEXTAREA"){
+                  window.setTimeout(function(){
+                      // 当前元素在视窗不可见情况下生效
+                      document.activeElement.scrollIntoViewIfNeeded()
+                  }, 0)
+              }
+          })
+      </script>
   </head>
   <body>
     <noscript>
