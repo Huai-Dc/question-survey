@@ -6,6 +6,7 @@ import store from './store'
 import 'normalize.css'
 import Vant from 'vant'
 import 'vant/lib/index.css'
+import '@/style/index.scss'
 
 Vue.use(Vant)
 

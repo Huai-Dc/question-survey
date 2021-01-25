@@ -1,7 +1,7 @@
 <template>
   <div class="survey-content">
     <div class="background">
-      <img src="../../assets/thanks.jpeg"/>
+      <img src="../../assets/images/thanks.jpeg"/>
     </div>
     <span>感谢您的耐心回答！</span>
   </div>

@@ -1,7 +1,7 @@
 <template>
     <div class="login-container">
         <div class="login-background">
-            <img src="../../assets/background.jpg"/>
+            <img :src="require('@/assets/images/background.jpg')"/>
         </div>
         <div class="login-content">
             <!-- LOGO -->
@@ -42,6 +42,8 @@
     import {setCookie, getCookie, setStorage} from '@/utils/storageData'
     import * as qs from 'qs'
     import { Toast } from 'vant'
+    import $http from '@/api/http'
+    import $apis from '@/api/apis'
 
     export default {
         name: "index",
@@ -53,6 +55,11 @@
                 },
                 isLoading: false,
                 checked: false, // 记住密码
+            }
+        },
+        computed: {
+            showLoading: function(){
+                return this.isLoading ? '登录中...' : '登录'
             }
         },
         methods: {
@@ -114,6 +121,65 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+.login-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    .login-background{
+        object-fit: cover;
+        margin: auto;
+        position: absolute;
+        z-index: -1;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        visibility: visible;
+        width: 100%;
+        height: 100%;
+    }
+    .login-content{
+        margin-top: 2rem;
+        .logo{
+            width: 100%;
+            margin: .6rem 0;
+            font-size: .5rem;
+            color: white;
+            text-align: center;
+        }
+    }
+    .form-content{
+        .user .van-col, .password .van-col{
+            height: 44px;
+            background-color: rgba(0,0,0,0.5);
+        }
+        .user{
+            margin-bottom: .3rem;
+        }
+        .password{
+            margin-bottom: .3rem;
+        }
 
+        .submit-button{
+            .van-button--primary{
+                color: #ffffff;
+                background-color: #52a9ff;
+                border: 1px solid #52a9ff;
+            }
+        }
+        .iconBar{
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+            margin-right: 2px;
+            line-height: 35px;
+            text-align: center;
+        }
+        .van-icon{
+            font-size: .5rem;
+            color: white;
+        }
+    }
+}
 </style>
