@@ -1,4 +1,7 @@
 # question-survey
+鲁商 培训
+根据调研问卷修改
+提交时注意区分分支
 
 ## Project setup
 ```
