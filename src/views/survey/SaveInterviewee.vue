@@ -49,21 +49,6 @@
                 fixed: true,
                 isFinish: false,
                 formData: {
-                    // caseId: {
-                    //   hidden: true,
-                    //   value: "",
-                    //   title: "调研问卷Id"
-                    // },
-                    // uid: {
-                    //   hidden: true,
-                    //   value: '',
-                    //   title: '用户id',
-                    // },
-                    // caseUserId: {
-                    //   hidden: true,
-                    //   value: '',
-                    //   title: '数据库中存的id'
-                    // },
                     viewer: {
                         title: "调研人员",
                         value: "",
@@ -123,11 +108,6 @@
                         value: "",
                         type: "text",
                     },
-                    // postLevel: {
-                    //   title: "受访者职级",
-                    //   value: "",
-                    //   type: "text",
-                    // },
                     remark: {
                         title: "访谈者及情况备注",
                         value: "",
