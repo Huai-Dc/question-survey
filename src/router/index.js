@@ -5,17 +5,12 @@ Vue.use(VueRouter)
 
 const routes = [
     {
-        path: '/',
-        name: 'Login',
-        component: () => import('@/views/login/Index')
-    },
-    {
         path: '/survey',
         name: 'survey',
         component: () => import('@/views/survey/Index')
     },
     {
-        path: '/saveInterviewee',
+        path: '/',
         name: 'saveInterviewee',
         component: () => import('@/views/survey/SaveInterviewee')
     },

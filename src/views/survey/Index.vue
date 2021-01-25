@@ -123,8 +123,8 @@
 <script>
     import $http from './../../api/http';
     import $apis from './../../api/apis';
-    import {getStorage, setStorage} from "../../utils/storageData";
-    import {createUid} from "../../utils";
+    import {getStorage, setStorage} from "@/utils/storageData";
+    import {createUid} from "@/utils";
 
     export default {
         name: 'Index',
@@ -237,9 +237,8 @@
                 }).then(res => {
                     if (isFinish) {
                         this.$router.push({
-                            name: 'saveInterviewee',
-                            params: {uid: "", caseUserId: getStorage("caseUserId")}
-                        })
+                            path: '/thanksPage'
+                        });
                     }
                 })
             }
