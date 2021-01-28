@@ -3,8 +3,6 @@
         <van-nav-bar
                 title="用户信息"
                 :fixed="fixed"
-                left-arrow
-                @click-left="onClickLeft"
         />
         <div class="register-tips">用户基本信息填写</div>
         <van-cell-group>
@@ -39,7 +37,8 @@
     import $http from './../../api/http';
     import $apis from './../../api/apis';
     import {Toast} from 'vant';
-    import {getStorage} from "../../utils/storageData";
+    import {getStorage, setStorage} from "@/utils/storageData";
+    import {createUid} from "@/utils";
 
     export default {
         name: 'SaveInterviewee',
@@ -113,13 +112,17 @@
 
 
                 let caseUserId = this.$route.params.isNew ? '' : getStorage("caseUserId");
-                let uid = this.$route.params.isNew ? '' : getStorage("uid");
+                let uid = createUid();
+                setStorage("uid", uid);
 
                 $http.post($apis.baseUrl + $apis.saveCaseUser, {
                     'name': formData.name ? formData.name.value : "",
                     'phoneNum': formData.phoneNum ? formData.phoneNum.value : "",
-                    'company': formData.company ? formData.company.value : ''
+                    'company': formData.company ? formData.company.value : '',
+                    'caseId': '16',
+                    'uid': uid
                 }).then(res => {
+                    console.log(res)
                     if (res.data.Success == true) {
                         Toast({
                             message: '提交成功！',
@@ -129,7 +132,7 @@
                                 // 进入问卷
                                 this.$router.push({
                                     name: 'survey',
-                                    params: {caseUserId: caseUserId}
+                                    params: {caseUserId: res.data.htInfo.caseUserId}
                                 })
                             }
                         })

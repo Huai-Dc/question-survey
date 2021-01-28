@@ -1,11 +1,9 @@
 <template>
     <div class="survey-content">
         <van-nav-bar
-                title="问卷调查"
+                title=""
                 :fixed="fixed"
                 @click-right="onClickRight"
-                left-arrow
-                @click-left="onClickLeft"
         >
             <i class="van-icon van-icon-wap-nav" style="color: #000000; font-size: 26px;" slot="right"/>
         </van-nav-bar>
@@ -28,7 +26,7 @@
                 </template>
             </van-radio-group>
             <template v-if="currentQuestion.subAnswerType == '2'" v-for="(item, index) in currentQuestion.items">
-                <van-checkbox v-model="item.checked" @change="checkSub(item.checked, item)">{{item.itemName}}
+                <van-checkbox shape="square" v-model="item.checked" @change="checkSub(item.checked, item)">{{item.itemName}}
                 </van-checkbox>
                 <div v-if="item.childSubject && item.childSubject.childItems && item.childSubject.childItems.length>0">
                     <span v-show="item.checked">{{item.childSubject.sampleDesc}}:</span>
@@ -42,7 +40,7 @@
                     <template v-if="item.childSubject && item.childSubject.subAnswerType == '2'"
                               v-for="(childItem, index) in item.childSubject.childItems">
                         <template>
-                            <van-checkbox v-show="item.checked" style="margin-left: 20px" v-model="childItem.checked"
+                            <van-checkbox shape="square" v-show="item.checked" style="margin-left: 20px" v-model="childItem.checked"
                                           @change="checkSub(childItem.checked, item)">{{childItem.itemName}}
                             </van-checkbox>
                             <van-field
@@ -111,9 +109,6 @@
                     <van-col span="22" class="item-title">
                         {{item.sampleDesc}}
                     </van-col>
-                    <van-col span="2" class="item-state">
-
-                    </van-col>
                 </van-row>
             </van-cell-group>
         </van-popup>
@@ -140,6 +135,10 @@
         },
         mounted() {
             this.getCaseUserId();
+            history.pushState(null, null, document.URL);
+            window.addEventListener('popstate', function () {
+                history.pushState(null, null, document.URL);
+            });
         },
         methods: {
             onClickRight() {
@@ -180,7 +179,7 @@
                 } else {
                     $http.post($apis.baseUrl + $apis.saveCaseUser, {
                         'userId': getStorage("userId") || "-100",
-                        'caseId': '15',
+                        'caseId': '16',
                         'uid': uid,
                     }).then(res => {
                         if (res.data && res.data.Success == true) {
@@ -191,8 +190,9 @@
                     });
                 }
             },
+
             getSurveyList(uid, caseUserId) {
-                $http.get($apis.baseUrl + $apis.getCaseSubject + "/15?uid=" + uid + "&caseUserId=" + caseUserId).then(res => {
+                $http.get($apis.baseUrl + $apis.getCaseSubject + "/16?uid=" + uid + "&caseUserId=" + caseUserId).then(res => {
                     if (res.data.length > 0) {
                         let data = res.data;
                         data.map((item, index) => {
@@ -217,6 +217,7 @@
             },
             saveSingleCase(isFinish) {
                 if (!this.currentQuestion) return false;
+                let uid = getStorage('uid');
 
                 if (this.currentQuestion.subAnswerType == 1) {
                     let value = this.currentQuestion.value;
@@ -231,9 +232,10 @@
                     this.currentQuestion.items[0].checked = true;
                 }
                 $http.post($apis.baseUrl + $apis.saveCaseAnswer, {
-                    caseId: '15',
+                    caseId: '16',
                     caseUserId: getStorage("caseUserId"),
-                    data: JSON.stringify(this.currentQuestion)
+                    data: JSON.stringify(this.currentQuestion),
+                    uid: uid
                 }).then(res => {
                     if (isFinish) {
                         this.$router.push({
@@ -245,7 +247,6 @@
         }
     }
 </script>
-
 <style lang="scss" scoped>
     .survey-content {
         background-color: #f5f5f5;

@@ -41,7 +41,7 @@
         methods: {
             getSurveyList(surceyId) {
                 let userId = getStorage("userId");
-                $http.get($apis.baseUrl + $apis.getSurveyList + "15?type=" + (userId == 5 ? 1 : 0) + "&userId=" + (userId ? userId : "")).then(res => {
+                $http.get($apis.baseUrl + $apis.getSurveyList + "16?type=" + (userId == 5 ? 1 : 0) + "&userId=" + (userId ? userId : "")).then(res => {
                     this.surveyList = res.data;
                 });
             },
